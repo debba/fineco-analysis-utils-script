@@ -16,7 +16,7 @@ Configuration
 -------------
 
 You can setup a configuration with your login credentials in order to remember next times.
-You should create a conf.json following cong.json.example:
+You should create a conf.json following conf.json.example:
 
 ```	
 {
