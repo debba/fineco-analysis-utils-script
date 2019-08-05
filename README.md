@@ -55,8 +55,8 @@ Cronjob example using Linux Crontab
 ------
 
 ```
-0 5 * * MON  python3 /script_path/fineco.py 1
-0 5 * * TUE,WED,THU,FRI,SAT,SUN  python3 /script_path/fineco.py
+0 5 * * MON  python3 /script_path/__init__.py 1
+0 5 * * TUE,WED,THU,FRI,SAT,SUN  python3 /script_path/__init__.py
 ```
 
 In this example on monday the script before executing normal operations will scrape all index titles.
