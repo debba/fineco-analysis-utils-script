@@ -19,7 +19,7 @@ You can setup a configuration with your login credentials in order to remember n
 You should create a conf.json following cong.json.example:
 
 ```	
-{{
+{
   "username": "your fineco username",
   "password": "your fineco password",
   "smtp": {
