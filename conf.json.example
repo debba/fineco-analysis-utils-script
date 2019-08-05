@@ -1,0 +1,15 @@
+{
+  "username": "your fineco username",
+  "password": "your fineco password",
+  "smtp": {
+    "host": "",
+    "port": 587,
+    "email": "",
+    "password": "",
+    "recipient": ""
+  },
+  "valid_results": [
+    "Strong BUY",
+    "Strong SELL"
+  ]
+}

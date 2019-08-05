@@ -1,0 +1,5 @@
+.idea/*
+/quotazioni.json
+/risultati.json
+conf.json
+venv
