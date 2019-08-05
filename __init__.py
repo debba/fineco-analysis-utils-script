@@ -45,6 +45,10 @@ if __name__ == "__main__":
     if fin is not None:
         print("Hello, %s" % fin.get_name())
 
+        if not fin.exists_quotation_file():
+            print("Quotation file doesn't exists, we'll recreate file.")
+            _scan_fineco = True
+
         if _scan_fineco:
             fin.scan(save_in_file=True)
 

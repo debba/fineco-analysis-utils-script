@@ -2,11 +2,14 @@ from bs4 import BeautifulSoup
 import requests
 import json
 import urllib.parse as urlparse
+import os.path
 
 FINECO_LOGIN_ENDPOINT = "https://finecobank.com/portalelogin"
 FINECO_DASHBOARD = "https://finecobank.com/home/myfineco"
 FINECO_PANIERI = "https://finecobank.com/mercati-e-trading/listini/analisi-lista"
 FINECO_ANALISI = "https://finecobank.com/mercati-e-trading/analisi/analisi"
+QUOTATIONS_FILE = "quotazioni.json"
+RESULTS_FILE = "risultati.json"
 
 
 class Fineco:
@@ -78,15 +81,18 @@ class Fineco:
                     self.__quotations[index] += self.__get_all_quotations(index, cur_page)
 
         if save_in_file:
-            with open('quotazioni.json', 'w') as outfile:
+            with open(QUOTATIONS_FILE, 'w') as outfile:
                 json.dump(self.__quotations, outfile)
             print("Saved into file")
+
+    def exists_quotation_file(self):
+        return os.path.exists(QUOTATIONS_FILE)
 
     def capture_result(self, result=None):
         if result is None:
             result = ['Strong BUY', 'Strong SELL']
         results = ''
-        with open('risultati.json') as json_file:
+        with open(RESULTS_FILE) as json_file:
             data = json.load(json_file)
             for index in data:
                 for quotation in data[index]:
@@ -99,7 +105,7 @@ class Fineco:
 
     def collect_data(self):
         results = {}
-        with open('quotazioni.json') as json_file:
+        with open(QUOTATION_FILE) as json_file:
             data = json.load(json_file)
             for index in data:
                 results[index] = []
@@ -122,7 +128,7 @@ class Fineco:
                                 result_part["result"] = tds[1].text.strip()
                                 results[index].append(result_part)
 
-        with open('risultati.json', 'w') as outfile:
+        with open(RESULTS_FILE, 'w') as outfile:
             json.dump(results, outfile)
 
     @staticmethod
