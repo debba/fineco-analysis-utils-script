@@ -105,7 +105,7 @@ class Fineco:
 
     def collect_data(self):
         results = {}
-        with open(QUOTATION_FILE) as json_file:
+        with open(QUOTATIONS_FILE) as json_file:
             data = json.load(json_file)
             for index in data:
                 results[index] = []
